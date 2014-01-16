@@ -80,4 +80,19 @@ cat index.template \
   | perl -p -w -e "s,\\\$stable_link,http://downloads.sourceforge.net/liblo/liblo-$PACKAGE_VERSION.tar.gz,g" \
   | cat >htdocs/index.html
 
+C1=#553322
+C2=#bb8866
+C3=#ccccdd
+C4=#ddeeee
+C5=#ccaa99
+
+echo index.html
+cat style.template \
+  | perl -p -w -e "s/\\\$C1/$C1/g" \
+  | perl -p -w -e "s/\\\$C2/$C2/g" \
+  | perl -p -w -e "s/\\\$C3/$C3/g" \
+  | perl -p -w -e "s/\\\$C4/$C4/g" \
+  | perl -p -w -e "s/\\\$C5/$C5/g" \
+  | cat >htdocs/style.css
+
 echo -e "\e[0m"
