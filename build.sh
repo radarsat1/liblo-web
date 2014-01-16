@@ -53,4 +53,6 @@ perl -p -0 -w -e "s/----------\n/\n# /g" $LIBLO_PATH/NEWS \
 
 # ChangeLog
 echo ChangeLog.html
-pandoc -s $LIBLO_PATH/ChangeLog -o htdocs/ChangeLog.html
+perl -p -0 -w -e "s/>\n/>\n\n/g" $LIBLO_PATH/ChangeLog \
+  | perl -p -w -e 's/\t\* /  - /' \
+  | pandoc -s -o htdocs/ChangeLog.html
