@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LIBLO_PATH=$1
 if [ x$LIBLO_PATH = x ]; then
@@ -27,16 +27,23 @@ fi
 echo
 echo -- Building liblo website based on $LIBLO_PATH
 
+sleep 1
+
 echo
 echo -- Replacing Doxygen docs...
-rm -rvf htdocs/docs && cp -vr $LIBLO_PATH/doc/html htdocs/docs
+echo -e "\e[2m"
+rm -rf htdocs/docs && cp -vr $LIBLO_PATH/doc/html htdocs/docs
+echo -e "\e[0m"
 
 echo
 echo -- Replacing example sources...
+echo -e "\e[2m"
 rm -rvf htdocs/examples/*.c && cp -v $LIBLO_PATH/examples/*.c htdocs/examples/
+echo -e "\e[0m"
 
 echo
 echo -- Generating html from various markdown files...
+echo -e "\e[2m"
 echo README.html && pandoc -s $LIBLO_PATH/README.md -o htdocs/README.html
 echo README-platforms.html && pandoc -s $LIBLO_PATH/build/README.md -o htdocs/README-platforms.html
 
@@ -56,3 +63,5 @@ echo ChangeLog.html
 perl -p -0 -w -e "s/>\n/>\n\n/g" $LIBLO_PATH/ChangeLog \
   | perl -p -w -e 's/\t\* /  - /' \
   | pandoc -s -o htdocs/ChangeLog.html
+
+echo -e "\e[0m"
