@@ -24,8 +24,12 @@ if ! pandoc -v >/dev/null 2>&1; then
   exit 1
 fi
 
+export $(grep PACKAGE_VERSION= $LIBLO_PATH/configure | perl -p -w -e "s/\'//g")
+
 echo
 echo -- Building liblo website based on $LIBLO_PATH
+echo -- Found version $PACKAGE_VERSION
+echo
 
 sleep 1
 
@@ -63,5 +67,17 @@ echo ChangeLog.html
 perl -p -0 -w -e "s/>\n/>\n\n/g" $LIBLO_PATH/ChangeLog \
   | perl -p -w -e 's/\t\* /  - /' \
   | pandoc -s -o htdocs/ChangeLog.html
+
+echo -e "\e[0m"
+
+echo
+echo -- Generating index.html from index.template...
+echo -e "\e[2m"
+
+echo index.html
+cat index.template \
+  | perl -p -w -e "s/\\\$stable_version/$PACKAGE_VERSION/g" \
+  | perl -p -w -e "s,\\\$stable_link,http://downloads.sourceforge.net/liblo/liblo-$PACKAGE_VERSION.tar.gz,g" \
+  | cat >htdocs/index.html
 
 echo -e "\e[0m"

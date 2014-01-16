@@ -1,24 +1,4 @@
-<?php
-	# Fetch the latest release
-/*
-	require_once 'magpie/rss_fetch.inc';
-	$release_feed = 'http://sourceforge.net/export/rss2_projfiles.php?group_id=116064&rss_limit=1';
-	$rss = fetch_rss($release_feed);
-	$release = $rss->items[0];
-	preg_match("/^liblo ([\d\.]+) released/", $release[title], $matches);
-	$release_version = $matches[1]; 
-*/
-# Note: It seems connections to sourceforge.net are currently refused by
-# this script?  Temporarily set the version number manually.
-
-$testing_version = "0.28rc";
-$testing_link = "http://downloads.sourceforge.net/liblo/liblo-$testing_version.tar.gz";
-$stable_version = "0.26";
-$stable_link = "http://downloads.sourceforge.net/liblo/liblo-$stable_version.tar.gz";
-
-	# Because PHP doesn't like parsing xml declaration
-	echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n";
-?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
         "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -91,8 +71,7 @@ $stable_link = "http://downloads.sourceforge.net/liblo/liblo-$stable_version.tar
 
 <h2>Download</h2>
 <ul>
-	<li>Latest stable release: <a href="<?=$stable_link?>">liblo <?=$stable_version?></a></li>
-	<li>Latest testing release: <a href="<?=$testing_link?>">liblo <?=$testing_version?></a></li> (Maintainers of projects and distros that use liblo, please test and report any bugs found.)</li>
+	<li>Latest stable release: <a href="$stable_link">liblo $stable_version</a></li>
 	<li><a href="http://sourceforge.net/project/showfiles.php?group_id=116064&amp;package_id=177607">Old Releases</a></li>
 	<!--<li><a href="http://packages.debian.org/liblo0">Debian Packages</a></li>-->
 </ul>
@@ -116,12 +95,6 @@ $stable_link = "http://downloads.sourceforge.net/liblo/liblo-$stable_version.tar
 <hr />
 
 <address>
-<a	href="http://validator.w3.org/check?uri=referer"><img
-	src="http://www.w3.org/Icons/valid-xhtml11" 
-	alt="Valid XHTML 1.1!" height="31" width="88" /></a>
-
-&nbsp;
-
 <a      href="http://sourceforge.net/projects/liblo"><img
         src="http://sflogo.sourceforge.net/sflogo.php?group_id=116064&type=16"
         width="150" height="40" border="0"
