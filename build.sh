@@ -37,7 +37,20 @@ rm -rvf htdocs/examples/*.c && cp -v $LIBLO_PATH/examples/*.c htdocs/examples/
 
 echo
 echo -- Generating html from various markdown files...
-pandoc -s $LIBLO_PATH/README.md -o htdocs/README.html
-pandoc -s $LIBLO_PATH/build/README.md -o htdocs/README-platforms.html
-pandoc -s $LIBLO_PATH/NEWS -o htdocs/NEWS.html
+echo README.html && pandoc -s $LIBLO_PATH/README.md -o htdocs/README.html
+echo README-platforms.html && pandoc -s $LIBLO_PATH/build/README.md -o htdocs/README-platforms.html
+
+# NEWS
+echo NEWS.html
+perl -p -0 -w -e "s/----------\n/\n# /g" $LIBLO_PATH/NEWS \
+  | perl -p -w -e "s/# $//" \
+  | perl -p -w -e "s/(-----)[-]*//" \
+  | perl -p -w -e "s/\- Steve/\\\- Steve/" \
+  | perl -p -0 -w -e "s/(\w*):\n/\$1:\n\n/g" \
+  | perl -p -0 -w -e "s/0\.5\)\n\*/\)\n\n\*/g" \
+  | perl -p -w -e "s/        (\w)/\- \$1/" \
+  | pandoc -s -o htdocs/NEWS.html
+
+# ChangeLog
+echo ChangeLog.html
 pandoc -s $LIBLO_PATH/ChangeLog -o htdocs/ChangeLog.html
