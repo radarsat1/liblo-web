@@ -86,7 +86,7 @@ C3=#ccccdd
 C4=#ddeeee
 C5=#ccaa99
 
-echo index.html
+echo style.css
 cat style.template \
   | perl -p -w -e "s/\\\$C1/$C1/g" \
   | perl -p -w -e "s/\\\$C2/$C2/g" \
