@@ -50,9 +50,13 @@ echo -- Generating html from various markdown files...
 echo -e "\e[2m"
 echo README.html && pandoc -s $LIBLO_PATH/README.md \
   | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  | perl -p -w -e 's,<body>,<body><div id="content">,g' \
+  | perl -p -w -e 's,</body>,</div></body>,g' \
   > htdocs/README.html
 echo README-platforms.html && pandoc -s $LIBLO_PATH/build/README.md \
   | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  | perl -p -w -e 's,<body>,<body><div id="content">,g' \
+  | perl -p -w -e 's,</body>,</div></body>,g' \
   > htdocs/README-platforms.html
 
 # NEWS
@@ -66,6 +70,8 @@ perl -p -0 -w -e "s/----------\n/\n# /g" $LIBLO_PATH/NEWS \
   | perl -p -w -e "s/        (\w)/\- \$1/" \
   | pandoc -s \
   | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  | perl -p -w -e 's,<body>,<body><div id="content">,g' \
+  | perl -p -w -e 's,</body>,</div></body>,g' \
   > htdocs/NEWS.html
 
 # ChangeLog
@@ -74,6 +80,8 @@ perl -p -0 -w -e "s/>\n/>\n\n/g" $LIBLO_PATH/ChangeLog \
   | perl -p -w -e 's/\t\* /  - /' \
   | pandoc -s \
   | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  | perl -p -w -e 's,<body>,<body><div id="content">,g' \
+  | perl -p -w -e 's,</body>,</div></body>,g' \
   > htdocs/ChangeLog.html
 
 echo -e "\e[0m"
