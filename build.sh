@@ -48,8 +48,12 @@ echo -e "\e[0m"
 echo
 echo -- Generating html from various markdown files...
 echo -e "\e[2m"
-echo README.html && pandoc -s $LIBLO_PATH/README.md -o htdocs/README.html
-echo README-platforms.html && pandoc -s $LIBLO_PATH/build/README.md -o htdocs/README-platforms.html
+echo README.html && pandoc -s $LIBLO_PATH/README.md \
+  | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  > htdocs/README.html
+echo README-platforms.html && pandoc -s $LIBLO_PATH/build/README.md \
+  | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  > htdocs/README-platforms.html
 
 # NEWS
 echo NEWS.html
@@ -60,13 +64,17 @@ perl -p -0 -w -e "s/----------\n/\n# /g" $LIBLO_PATH/NEWS \
   | perl -p -0 -w -e "s/(\w*):\n/\$1:\n\n/g" \
   | perl -p -0 -w -e "s/0\.5\)\n\*/\)\n\n\*/g" \
   | perl -p -w -e "s/        (\w)/\- \$1/" \
-  | pandoc -s -o htdocs/NEWS.html
+  | pandoc -s \
+  | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  > htdocs/NEWS.html
 
 # ChangeLog
 echo ChangeLog.html
 perl -p -0 -w -e "s/>\n/>\n\n/g" $LIBLO_PATH/ChangeLog \
   | perl -p -w -e 's/\t\* /  - /' \
-  | pandoc -s -o htdocs/ChangeLog.html
+  | pandoc -s \
+  | perl -p -w -e 's,</title>,</title><link rel=stylesheet type=text/css href=style.css>,g' \
+  > htdocs/ChangeLog.html
 
 echo -e "\e[0m"
 
