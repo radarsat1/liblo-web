@@ -9,6 +9,8 @@
 </head>
 
 <body>
+
+<div id="content">
  
 <h1>liblo: Lightweight OSC implementation</h1>
 <p>
@@ -78,6 +80,8 @@
         width="150" height="40" border="0"
         alt="Get LibLO at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 </address>
+
+</div>
 
 </body>
 </html>

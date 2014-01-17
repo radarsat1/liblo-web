@@ -16,10 +16,16 @@ h1
 
 body
 {
-    width: 640px;
     margin: 20px;
 	background-color: $C4;
 	color: $C1;
+    text-align: center;
+}
+
+#content {
+    width: 640px;
+    margin: 0px auto;
+    text-align: left;
 }
 
 a { text-decoration: none; color: $C3; }
