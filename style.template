@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6
 
 h1
 {
-    background-color: $C2;
+    background-color: $C5;
     padding: 20px;
     border-radius: 20px;
 }
@@ -19,10 +19,10 @@ body
     width: 640px;
     margin: 20px;
 	background-color: $C4;
-	color: #333322;
+	color: $C1;
 }
 
-a { text-decoration: none; color: $C2; }
+a { text-decoration: none; color: $C3; }
 
 a:hover { text-decoration: underline; }
 

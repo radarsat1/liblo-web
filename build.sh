@@ -88,11 +88,11 @@ cat index.template \
   | perl -p -w -e "s,\\\$stable_link,http://downloads.sourceforge.net/liblo/liblo-$PACKAGE_VERSION.tar.gz,g" \
   | cat >htdocs/index.html
 
-C1=#553322
-C2=#bb8866
-C3=#ccccdd
-C4=#ddeeee
-C5=#ccaa99
+C1=#554444
+C2=#998877
+C3=#ddaa77
+C4=#eeeeee
+C5=#ccbbbb
 
 echo style.css
 cat style.template \
