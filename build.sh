@@ -24,6 +24,11 @@ if ! pandoc -v >/dev/null 2>&1; then
   exit 1
 fi
 
+if ! pygmentize -V >/dev/null 2>&1; then
+  echo 'Error running pygmentize, is it available? (debian package "python-pygments")'
+  exit 1
+fi
+
 export $(grep PACKAGE_VERSION= $LIBLO_PATH/configure | perl -p -w -e "s/\'//g")
 
 echo
@@ -42,7 +47,19 @@ echo -e "\e[0m"
 echo
 echo -- Replacing example sources...
 echo -e "\e[2m"
-rm -rvf htdocs/examples/*.c && cp -v $LIBLO_PATH/examples/*.c htdocs/examples/
+rm -rvf htdocs/examples/*.{c,cpp,c.html,cpp.html}
+for i in $LIBLO_PATH/examples/*.{c,cpp}; do
+	cp -v $i htdocs/examples/
+	j=$(basename $i)
+	pygmentize -O full,style=colorful,linenos=1 -f html $i \
+		| perl -p -w -e "s,(<title>)(</title>),\$1$j\$2," \
+		| perl -p -w -e "s,</style>,</style><link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\">," \
+		| perl -p -w -e "s,<h2></h2>,<div id=\"content\"><h1>liblo: $j <a href=\"$j\">(raw)</a></h1>," \
+		| perl -p -w -e "s,</body>,</div></body>," \
+		| perl -p -w -e "s,background:\\s*#\\w+;,," \
+		| perl -p -w -e "s,background-color:\\s*#\\w+;?,," \
+		> htdocs/examples/$j.html
+done
 echo -e "\e[0m"
 
 echo
