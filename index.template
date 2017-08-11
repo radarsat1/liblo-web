@@ -63,7 +63,6 @@
 	<li><a href="https://github.com/radarsat1/liblo/issues">Issue Tracker</a></li>
 	<li><a href="https://github.com/radarsat1/liblo">View Git</a><br/> |
 	clone: <tt>git://liblo.git.sourceforge.net/gitroot/liblo/liblo</tt><br/> |
-        mirror: <tt>git://gitorious.org/liblo/mainline.git</tt><br/> |
         mirror: <tt>git://github.com/radarsat1/liblo.git</tt></li>
 
 	<li><a href="http://search.cpan.org/dist/Net-LibLO/">Net::LibLO Perl Module</a></li>
