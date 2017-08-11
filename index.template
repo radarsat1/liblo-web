@@ -60,9 +60,8 @@
 <ul>
 	<li><a href="http://sourceforge.net/projects/liblo/">SourceForge Project Page</a></li>
 	<li><a href="http://lists.sourceforge.net/lists/listinfo/liblo-devel">Mailing List</a></li>
-	<li><a href="http://sourceforge.net/tracker/?group_id=116064&amp;atid=673869">Bug Tracker</a></li>
-	<!--<li><a href="http://sourceforge.net/svn/?group_id=116064">Subversion</a> | <a href="http://svn.sourceforge.net/liblo/">ViewVC</a> |-->
-	<li><a href="http://liblo.git.sourceforge.net/git/gitweb.cgi?p=liblo/liblo;a=tree">View Git</a><br/> |
+	<li><a href="https://github.com/radarsat1/liblo/issues">Issue Tracker</a></li>
+	<li><a href="https://github.com/radarsat1/liblo">View Git</a><br/> |
 	clone: <tt>git://liblo.git.sourceforge.net/gitroot/liblo/liblo</tt><br/> |
         mirror: <tt>git://gitorious.org/liblo/mainline.git</tt><br/> |
         mirror: <tt>git://github.com/radarsat1/liblo.git</tt></li>
