@@ -52,7 +52,8 @@
 <h2>Download</h2>
 <ul>
 	<li>Latest stable release: <a href="$stable_link">liblo $stable_version</a></li>
-	<li><a href="http://sourceforge.net/project/showfiles.php?group_id=116064&amp;package_id=177607">Old Releases</a></li>
+	<li><a href="https://sourceforge.net/projects/liblo/files/liblo/">Old Releases</a></li>
+	<!--<li><a href="http://sourceforge.net/project/showfiles.php?group_id=116064&amp;package_id=177607">Old Releases</a></li>-->
 	<!--<li><a href="http://packages.debian.org/liblo0">Debian Packages</a></li>-->
 </ul>
 
