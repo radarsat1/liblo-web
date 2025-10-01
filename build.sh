@@ -110,7 +110,7 @@ echo -e "\e[2m"
 echo index.html
 cat index.template \
   | perl -p -w -e "s/\\\$stable_version/$PACKAGE_VERSION/g" \
-  | perl -p -w -e "s,\\\$stable_link,http://downloads.sourceforge.net/liblo/liblo-$PACKAGE_VERSION.tar.gz,g" \
+  | perl -p -w -e "s,\\\$stable_link,https://sourceforge.net/projects/liblo/files/liblo/$PACKAGE_VERSION/liblo-$PACKAGE_VERSION.tar.gz/download,g" \
   | cat >htdocs/index.html
 
 C1=#554444

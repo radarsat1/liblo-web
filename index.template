@@ -15,7 +15,7 @@
 <h1>liblo: Lightweight OSC implementation</h1>
 <p>
 	<u>liblo</u> is an implementation of the 
-	<a href="http://www.opensoundcontrol.org/">
+	<a href="https://opensoundcontrol.stanford.edu/">
 		Open Sound Control
 	</a>
 	protocol for POSIX systems, started by 
@@ -60,7 +60,6 @@
 <h2>Site Map</h2>
 <ul>
 	<li><a href="http://sourceforge.net/projects/liblo/">SourceForge Project Page</a></li>
-	<li><a href="http://lists.sourceforge.net/lists/listinfo/liblo-devel">Mailing List</a></li>
 	<li><a href="https://github.com/radarsat1/liblo/issues">Issue Tracker</a></li>
 	<li><a href="https://github.com/radarsat1/liblo">View Git</a><br/> |
 	clone: <tt>git://liblo.git.sourceforge.net/gitroot/liblo/liblo</tt><br/> |
