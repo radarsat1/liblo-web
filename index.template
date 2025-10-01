@@ -66,6 +66,11 @@
         mirror: <tt>git://github.com/radarsat1/liblo.git</tt></li>
 </ul>
 
+The GitHub repository is preferred for active development. The
+SourceForce git repository is kept synchronized manually, and used for
+web hosting.  For recent release, the same release files are hosted in
+both GitHub and SourceForge.
+
 <h2>Related projects</h2>
 <ul>
 	<li><a href="http://search.cpan.org/dist/Net-LibLO/">Net::LibLO Perl Module</a></li>
