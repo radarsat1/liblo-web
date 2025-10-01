@@ -14,7 +14,7 @@
  
 <h1>liblo: Lightweight OSC implementation</h1>
 <p>
-	<u>liblo</u> is an implementation of the 
+	<b>liblo</b> is an implementation of the
 	<a href="https://opensoundcontrol.stanford.edu/">
 		Open Sound Control
 	</a>
